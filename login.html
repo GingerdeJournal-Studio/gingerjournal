@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="icon" type="svg" href="https://pub-3a50bbfda00a49b2b959d58cd7bea019.r2.dev/Images/Logo/Icons/WhiteGinger.svg">
+    <style>
+        html, body {overscroll-behavior: none; border: 0; margin: 0; padding: 0;}
+        .googleBtn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            width: 100%;background: #112d4e;
+            height: 100vh;
+        }
+
+        .photo {
+            width: 80%;
+            height: 500px;
+        }
+
+        .photo h2 {text-align: center; color: white; margin-top: -50px; padding: 0 80px;}
+
+        .logo {margin-top: -100px; width: auto; height: 200px; background-position: center; background-size: contain; background-repeat: no-repeat;}
+
+        #googleLogin {
+            width: 200px;
+            height: 50px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        #googleLogin:hover {cursor: pointer; scale: 0.98;}
+    </style>
+</head>
+<body>
+    <section class="googleBtn">
+        <div class="photo">
+            <div class="logo" style="background-image: url('https://pub-3a50bbfda00a49b2b959d58cd7bea019.r2.dev/Images/Logo/GingerLogo.png');"></div>
+            <h2>Hello! Welcome to the GingerJournal login page! For now we only support Google account login, we hope that in the future we can provide other ways to login.</h2>
+        </div>
+        <button id="googleLogin">Sign in with Google</button>
+    </section>
+
+</body>
+<script type="module">
+    import { auth, provider } from "./firebase-init.js";
+    import { signInWithPopup } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+    document.getElementById("googleLogin").addEventListener("click", () => {
+        signInWithPopup(auth, provider)
+            .then((result) => {
+                alert("Logged in as: " + result.user.email);
+                window.location.href = "index.html"; // redirect after login
+            })
+            .catch((error) => alert(error.message));
+    });
+</script>
+</html>

@@ -1,0 +1,29 @@
+Color for the website
+Dark blue: #112d4e
+Medium blue: #3f72af
+Light blue: #dbe2ef
+gray:  rgba(255, 255, 255, 0.82)
+
+Downloading page secondary title color: #717171
+
+pre CONDITION: THE TARGET MUST BE position: relative;
+::after code to make a line under
+    content: '';
+    background: #f9f7f7;
+    height: 3px;
+    width: 100%;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    border-radius: 5px;
+
+Icons:
+Location: <img class="icons" src="GingerMedia/Icons/Location.svg" alt="">
+Calendar: <img class="icons" src="GingerMedia/Icons/Calendar%20Dark.svg" alt="">
+Ginger: <img class="icons" src="GingerMedia/Icons/Ginger.svg" alt="">
+
+Contact form link
+https://us2.list-manage.com/contact-form?u=be594948cd2353525cc4b11ed&form_id=79ee26161e63292a69c8f68a32a3d56f
+
+Viewport
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
