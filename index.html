@@ -75,7 +75,6 @@
     </section>
 
 </body>
-    <script src ="GlobalFiles/HEADER_FOOTER.js"></script>
     <script type="module" src="auth-state.js"></script>
     <script type="module">
         import { loadComponent } from "include.js";
@@ -86,11 +85,11 @@
                 const el = document.getElementById("userArea");
                 if (el) {
                     clearInterval(waitForUserArea);
-                    import("auth-state.js");
                 }
             }, 50);
         });
 
         loadComponent("#footer", "footer.html");
     </script>
+    <script src ="GlobalFiles/HEADER_FOOTER.js"></script>
 </html>
