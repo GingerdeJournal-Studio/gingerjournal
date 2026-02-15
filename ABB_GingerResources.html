@@ -20,7 +20,7 @@
 </body>
 
 <script type="module">
-    console.log("Script loaded");
+    console.log("SCRIPT VERSION 2 LOADED");
 
     /* -----------------------------
        IMPORTS
@@ -33,8 +33,6 @@
        LOAD HEADER
     ------------------------------*/
     loadComponent("#header", "GlobalFiles/GlobalFiles.html", () => {
-        console.log("Header loaded");
-
         initHeaderMenu();
         initHeaderScrollBehavior();
         initScrollPopup();
@@ -52,10 +50,7 @@
        LOAD PHOTO DATA
     ------------------------------*/
     fetch("GlobalFiles/photoData.json")
-        .then(res => {
-            console.log("JSON loaded");
-            return res.json();
-        })
+        .then(res => res.json())
         .then(data => {
             const container = document.getElementById("photoContainer");
 
@@ -72,24 +67,24 @@
 
                 container.appendChild(card);
             });
-        })
-        .catch(err => console.error("JSON load error:", err));
+        });
 
     /* -----------------------------
-       DOWNLOAD HANDLER
+       DIRECT DOWNLOAD HANDLER
+       (NO CORS REQUIRED)
     ------------------------------*/
     document.addEventListener("click", (e) => {
         if (!e.target.classList.contains("downloadBtn")) return;
 
         const url = e.target.dataset.url;
+        console.log("Direct download:", url);
 
         const a = document.createElement("a");
         a.href = url;
-        a.download = url.split("/").pop();
+        a.download = url.split("/").pop(); // filename
         document.body.appendChild(a);
         a.click();
         a.remove();
     });
 </script>
-
 </html>
