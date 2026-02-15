@@ -8,26 +8,108 @@
     <link rel="stylesheet" href="GlobalFiles/HEADER_FOOTER.css">
     <link rel="icon" type="svg" href="https://pub-3a50bbfda00a49b2b959d58cd7bea019.r2.dev/Images/Logo/Icons/WhiteGinger.svg">
 </head>
+
 <body>
-    <div id="header" data-page="gingerResources"></div>
+<div id="header" data-page="gingerResources"></div>
+
+<section class="photoGallery">
+    <h1>Downloadable Photos</h1>
+    <div id="photoContainer" class="photoContainer"></div>
+</section>
+
 </body>
-    <script type="module">
-        import { loadComponent } from "./include.js";
-        import { initHeaderMenu, initHeaderScrollBehavior, initScrollPopup } from "./GlobalFiles/HEADER_FOOTER.js";
 
-        loadComponent("#header", "GlobalFiles/GlobalFiles.html", () => {
-            initHeaderMenu();
-            initHeaderScrollBehavior();
-            initScrollPopup();
+<script type="module">
+    console.log("Script loaded");
 
-            const wait = setInterval(() => {
-                const el = document.getElementById("userArea");
-                if (el) {
-                    clearInterval(wait);
-                    import("./auth-state.js");
-                }
-            }, 30);
-        });
-    </script>
-    <script src ="GlobalFiles/HEADER_FOOTER.js"></script>
+    /* -----------------------------
+       IMPORTS
+    ------------------------------*/
+    import { loadComponent } from "./include.js";
+    import { initHeaderMenu, initHeaderScrollBehavior, initScrollPopup }
+        from "./GlobalFiles/HEADER_FOOTER.js";
+
+    /* -----------------------------
+       LOAD HEADER
+    ------------------------------*/
+    loadComponent("#header", "GlobalFiles/GlobalFiles.html", () => {
+        console.log("Header loaded");
+
+        initHeaderMenu();
+        initHeaderScrollBehavior();
+        initScrollPopup();
+
+        const wait = setInterval(() => {
+            const el = document.getElementById("userArea");
+            if (el) {
+                clearInterval(wait);
+                import("./auth-state.js");
+            }
+        }, 30);
+    });
+
+    /* -----------------------------
+       LOAD PHOTO DATA
+    ------------------------------*/
+    fetch("GlobalFiles/photoData.json")
+        .then(res => {
+            console.log("JSON loaded");
+            return res.json();
+        })
+        .then(data => {
+            const container = document.getElementById("photoContainer");
+
+            data.forEach(photo => {
+                const card = document.createElement("div");
+                card.className = "photoCard";
+
+                card.innerHTML = `
+                    <div class="photoImg" style="background-image: url('${photo.url}')"></div>
+                    <h3>${photo.title}</h3>
+                    <p>${photo.description}</p>
+                    <button class="downloadBtn" data-url="${photo.url}">Download</button>
+                `;
+
+                container.appendChild(card);
+            });
+        })
+        .catch(err => console.error("JSON load error:", err));
+
+    /* -----------------------------
+       DOWNLOAD HANDLER
+    ------------------------------*/
+    document.addEventListener("click", async (e) => {
+        console.log("Clicked:", e.target);
+
+        if (!e.target.classList.contains("downloadBtn")) {
+            console.log("Not a download button");
+            return;
+        }
+
+        console.log("Download button detected");
+
+        const url = e.target.dataset.url;
+
+        try {
+            const response = await fetch(url);
+            console.log("Fetch response:", response);
+
+            const blob = await response.blob();
+            const tempUrl = URL.createObjectURL(blob);
+
+            const a = document.createElement("a");
+            a.href = tempUrl;
+            a.download = url.split("/").pop();
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+
+            URL.revokeObjectURL(tempUrl);
+        } catch (err) {
+            alert("Download failed");
+            console.error("Download error:", err);
+        }
+    });
+</script>
+
 </html>
