@@ -78,38 +78,17 @@
     /* -----------------------------
        DOWNLOAD HANDLER
     ------------------------------*/
-    document.addEventListener("click", async (e) => {
+    document.addEventListener("click", (e) => {
         if (!e.target.classList.contains("downloadBtn")) return;
 
         const url = e.target.dataset.url;
 
-        try {
-            console.log("Starting download for:", url);
-
-            const response = await fetch(url);
-            console.log("Response OK:", response.ok, "Status:", response.status);
-
-            console.log("About to convert to blob...");
-            const blob = await response.blob();
-            console.log("Blob created:", blob);
-
-            const tempUrl = URL.createObjectURL(blob);
-            console.log("Temp URL created:", tempUrl);
-
-            const a = document.createElement("a");
-            a.href = tempUrl;
-            a.download = url.split("/").pop();
-            document.body.appendChild(a);
-            console.log("Triggering click...");
-            a.click();
-            a.remove();
-
-            URL.revokeObjectURL(tempUrl);
-            console.log("Download complete");
-        } catch (err) {
-            console.error("Download error:", err);
-            alert("Download failed");
-        }
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = url.split("/").pop();
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
     });
 </script>
 
