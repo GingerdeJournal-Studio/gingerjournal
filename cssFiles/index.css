@@ -10,7 +10,7 @@
 }
 .title {
     color: #112d4e;
-    font-size: 1.5rem;
+    font-size: clamp(15px, 5vw, 1.5rem);
 }
 .recommendWrapper, .categoriesWrapper {
     margin-top: 1rem;
@@ -87,9 +87,14 @@
 }
 
 .img {
-    width: 150px; height: 150px; clip-path: circle(); background: black; margin-bottom: 2rem;
+    display: flex;
+    width: 150px; height: 150px; border-radius: 100%; background: white; margin-bottom: 2rem; border: 5px solid #112d4e;
     background-position: center; background-size: cover;
 }
+.img img {margin: auto;}
 .ourResourcesInfo h2 {color: #112d4e;}
 .ourResourcesInfo p {padding: 5px 30px; text-align: center;}
+
+
+
 

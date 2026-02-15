@@ -11,21 +11,23 @@
 <body>
     <div id="header" data-page="gingerResources"></div>
 </body>
-    <script type="module" src="auth-state.js"></script>
     <script type="module">
-        import { loadComponent } from "include.js";
+        import { loadComponent } from "./include.js";
+        import { initHeaderMenu, initHeaderScrollBehavior, initScrollPopup } from "./GlobalFiles/HEADER_FOOTER.js";
 
-        loadComponent("#header", "header.html", () => {
-            // Wait until #userArea actually exists
-            const waitForUserArea = setInterval(() => {
+        loadComponent("#header", "GlobalFiles/GlobalFiles.html", () => {
+            initHeaderMenu();
+            initHeaderScrollBehavior();
+            initScrollPopup();
+
+            const wait = setInterval(() => {
                 const el = document.getElementById("userArea");
                 if (el) {
-                    clearInterval(waitForUserArea);
+                    clearInterval(wait);
+                    import("./auth-state.js");
                 }
-            }, 50);
+            }, 30);
         });
-
-        loadComponent("#footer", "footer.html");
     </script>
     <script src ="GlobalFiles/HEADER_FOOTER.js"></script>
 </html>

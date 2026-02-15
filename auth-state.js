@@ -25,7 +25,6 @@ function renderLoggedIn(user) {
     </div>
     `;
 
-
     document.getElementById("logoutDesktop").onclick = () => signOut(auth);
     document.getElementById("logoutMobile").onclick = () => signOut(auth);
 }

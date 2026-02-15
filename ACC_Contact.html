@@ -10,22 +10,39 @@
 </head>
 <body>
     <div id="header" data-page="contact"></div>
-</body>
-    <script type="module" src="auth-state.js"></script>
-    <script type="module">
-        import { loadComponent } from "include.js";
 
-        loadComponent("#header", "header.html", () => {
-            // Wait until #userArea actually exists
-            const waitForUserArea = setInterval(() => {
+    <section class="form">
+        <form action="https://api.web3forms.com/submit" method="POST" class="formLeft">
+            <h1>Get in Touch with Us!</h1>
+            <hr>
+            <input type="hidden" name="access_key" value="aeb13dda-3026-4730-9826-9aab118f8917">
+            <input type="text" name="name" placeholder="Your Name" required class="formInput">
+            <input type="email" name="email" placeholder="Your Email" required class="formInput">
+            <textarea name="message" placeholder="Your message" required class="formInput"></textarea>
+            <button type="submit">Submit</button>
+        </form>
+        <div class="formRight">
+            <div class="formImage"></div>
+        </div>
+    </section>
+</body>
+    <script type="module">
+        import { loadComponent } from "./include.js";
+        import { initHeaderMenu, initHeaderScrollBehavior, initScrollPopup } from "./GlobalFiles/HEADER_FOOTER.js";
+
+        loadComponent("#header", "GlobalFiles/GlobalFiles.html", () => {
+            initHeaderMenu();
+            initHeaderScrollBehavior();
+            initScrollPopup();
+
+            const wait = setInterval(() => {
                 const el = document.getElementById("userArea");
                 if (el) {
-                    clearInterval(waitForUserArea);
+                    clearInterval(wait);
+                    import("./auth-state.js");
                 }
-            }, 50);
+            }, 30);
         });
-
-        loadComponent("#footer", "footer.html");
     </script>
     <script src ="GlobalFiles/HEADER_FOOTER.js"></script>
 </html>

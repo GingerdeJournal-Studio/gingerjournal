@@ -9,6 +9,7 @@
     <link rel="icon" type="svg" href="https://pub-3a50bbfda00a49b2b959d58cd7bea019.r2.dev/Images/Logo/Icons/WhiteGinger.svg">
 </head>
 <body>
+
     <header id="header" data-page="home"></header>
 
     <section class="hero">
@@ -52,22 +53,22 @@
 
         <div class="ourResourcesWrapper">
             <div class="ourResourcesInfo">
-                <div class="img"></div>
+                <div class="img"><img src="https://pub-3a50bbfda00a49b2b959d58cd7bea019.r2.dev/Images/Logo/Icons/PHOTO_ICON.svg"></div>
                 <h2>Images</h2>
                 <p>We provide free image resources for people all around the world, feel free to use them!</p>
             </div>
             <div class="ourResourcesInfo">
-                <div class="img"></div>
+                <div class="img"><img src="https://pub-3a50bbfda00a49b2b959d58cd7bea019.r2.dev/Images/Logo/Icons/VIDEO_ICON.svg"></div>
                 <h2>Videos</h2>
                 <p>We provide free video resources for people around the world, feel free to use them!</p>
             </div>
             <div class="ourResourcesInfo">
-                <div class="img"></div>
+                <div class="img"><img src="https://pub-3a50bbfda00a49b2b959d58cd7bea019.r2.dev/Images/Logo/Icons/COMPUTER_ICON.svg"></div>
                 <h2>Classes</h2>
                 <p>We have photography classes that helps with anyone who is just getting started!</p>
             </div>
             <div class="ourResourcesInfo">
-                <div class="img"></div>
+                <div class="img"><img src="https://pub-3a50bbfda00a49b2b959d58cd7bea019.r2.dev/Images/Logo/Icons/INFO_ICON.svg"></div>
                 <h2>Guidance</h2>
                 <p>We provide guidance on different things based on photography and film!</p>
             </div>
@@ -75,21 +76,23 @@
     </section>
 
 </body>
-    <script type="module" src="auth-state.js"></script>
     <script type="module">
-        import { loadComponent } from "include.js";
+        import { loadComponent } from "./include.js";
+        import { initHeaderMenu, initHeaderScrollBehavior, initScrollPopup } from "./GlobalFiles/HEADER_FOOTER.js";
 
-        loadComponent("#header", "header.html", () => {
-            // Wait until #userArea actually exists
-            const waitForUserArea = setInterval(() => {
+        loadComponent("#header", "GlobalFiles/GlobalFiles.html", () => {
+            initHeaderMenu();
+            initHeaderScrollBehavior();
+            initScrollPopup();
+
+            const wait = setInterval(() => {
                 const el = document.getElementById("userArea");
                 if (el) {
-                    clearInterval(waitForUserArea);
+                    clearInterval(wait);
+                    import("./auth-state.js");
                 }
-            }, 50);
+            }, 30);
         });
-
-        loadComponent("#footer", "footer.html");
     </script>
     <script src ="GlobalFiles/HEADER_FOOTER.js"></script>
 </html>

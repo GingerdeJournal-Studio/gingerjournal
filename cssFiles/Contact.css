@@ -1,0 +1,65 @@
+.form {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background: #112d4e;
+}
+
+.formLeft {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1rem;
+}
+
+.formLeft h1 {
+    font-weight: 600;
+    color: white;
+    font-size: 2rem;
+}
+
+.formLeft hr {
+    margin-top: -.8rem;
+    border: none;
+    width: 120px;
+    height: 5px;
+    background: white;
+    border-radius: 1rem;
+}
+
+.formInput {
+    width: 400px;
+    height: 50px;
+    border: none;
+    outline: none;
+    padding-left: 1rem;
+    font-weight: bold;
+    background: white;
+    border-radius: 50px;
+    transition: 0s;
+}
+
+.formLeft textarea {
+    height: 200px;
+    padding-top: 15px;
+    border-radius: 20px;
+}
+
+.formInput:focus {
+    border: 2px solid yellow;
+}
+
+.formLeft button {
+    display: flex;
+    align-items: center;
+    padding: 10px 40px;
+    font-size: 1rem;
+    color: #112d4e;
+    border: none;
+    border-radius: 50px;
+    background: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
