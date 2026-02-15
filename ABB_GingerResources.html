@@ -94,8 +94,11 @@
             const response = await fetch(url);
             console.log("Fetch response:", response);
 
+            console.log("About to convert to blob...");
             const blob = await response.blob();
+            console.log("Blob created:", blob);
             const tempUrl = URL.createObjectURL(blob);
+            console.log("Response OK:", response.ok, "Status:", response.status);
 
             const a = document.createElement("a");
             a.href = tempUrl;
