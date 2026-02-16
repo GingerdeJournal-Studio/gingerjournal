@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <title>GingerResources</title>
+
     <link rel="stylesheet" href="cssFiles/GingerResources.css">
     <link rel="stylesheet" href="GlobalFiles/HEADER_FOOTER.css">
     <link rel="icon" type="svg" href="https://pub-3a50bbfda00a49b2b959d58cd7bea019.r2.dev/Images/Logo/Icons/WhiteGinger.svg">
@@ -17,10 +18,17 @@
     <div id="photoContainer" class="photoContainer"></div>
 </section>
 
-</body>
+<!-- LIGHTBOX -->
+<div id="lightbox" class="lightbox hidden">
+    <div class="lightbox-content">
+        <span id="lightbox-close" class="lightbox-close">&times;</span>
+        <img id="lightbox-img" class="lightbox-img" src="">
+        <button id="lightbox-download" class="lightbox-download">Download</button>
+    </div>
+</div>
 
 <script type="module">
-    console.log("SCRIPT VERSION 2 LOADED");
+    console.log("SCRIPT VERSION 3 LOADED");
 
     /* -----------------------------
        IMPORTS
@@ -28,6 +36,11 @@
     import { loadComponent } from "./include.js";
     import { initHeaderMenu, initHeaderScrollBehavior, initScrollPopup }
         from "./GlobalFiles/HEADER_FOOTER.js";
+
+    import { getAuth }
+        from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+    const auth = getAuth();
 
     /* -----------------------------
        LOAD HEADER
@@ -59,10 +72,19 @@
                 card.className = "photoCard";
 
                 card.innerHTML = `
-                    <div class="photoImg" style="background-image: url('${photo.url}')"></div>
+                    <div class="photoImg"
+                         style="background-image: url('${photo.full}')"
+                         data-full="${photo.full}"
+                         data-download="${photo.download}">
+                    </div>
+
                     <h3>${photo.title}</h3>
                     <p>${photo.description}</p>
-                    <button class="downloadBtn" data-url="${photo.url}">Download</button>
+
+                    <button class="downloadBtn"
+                            data-url="${photo.download}">
+                        Download
+                    </button>
                 `;
 
                 container.appendChild(card);
@@ -70,21 +92,74 @@
         });
 
     /* -----------------------------
-       DIRECT DOWNLOAD HANDLER
-       (NO CORS REQUIRED)
+       DOWNLOAD WITH LOGIN CHECK
     ------------------------------*/
     document.addEventListener("click", (e) => {
         if (!e.target.classList.contains("downloadBtn")) return;
 
+        const user = auth.currentUser;
+
+        if (!user) {
+            alert("You must be logged in to download photos.");
+            return;
+        }
+
         const url = e.target.dataset.url;
-        console.log("Direct download:", url);
 
         const a = document.createElement("a");
         a.href = url;
-        a.download = url.split("/").pop(); // filename
+        a.download = url.split("/").pop();
         document.body.appendChild(a);
         a.click();
         a.remove();
     });
+
+    /* -----------------------------
+       LIGHTBOX LOGIC
+    ------------------------------*/
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const lightboxClose = document.getElementById("lightbox-close");
+    const lightboxDownload = document.getElementById("lightbox-download");
+
+    document.addEventListener("click", (e) => {
+
+        // Open lightbox
+        if (e.target.classList.contains("photoImg")) {
+            const full = e.target.dataset.full;
+            const download = e.target.dataset.download;
+
+            lightboxImg.src = full;
+            lightboxDownload.dataset.url = download;
+
+            lightbox.classList.remove("hidden");
+        }
+
+        // Close lightbox
+        if (e.target === lightboxClose || e.target === lightbox) {
+            lightbox.classList.add("hidden");
+        }
+
+        // Download inside lightbox
+        if (e.target === lightboxDownload) {
+            const user = auth.currentUser;
+
+            if (!user) {
+                alert("You must be logged in to download photos.");
+                return;
+            }
+
+            const url = e.target.dataset.url;
+
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = url.split("/").pop();
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+        }
+    });
 </script>
+
+</body>
 </html>
