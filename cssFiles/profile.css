@@ -1,0 +1,149 @@
+.profileSection {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.profileCard {
+    position: fixed;
+    top: 0;
+    left: 0;
+    font-size: 15px;
+    padding-top: 100px;
+    border-right: 4px solid #112d4e;
+    width: 28%;
+    height: 100%;
+    text-align: center;
+}
+
+.accountInfoBox {
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 150px;
+    border-bottom: 5px dotted #112d4e;
+}
+
+.profilePic {
+    margin-top: -50px;
+    width: 90px;
+    height: 90px;
+    border-radius: 100%;
+    border: 5px dotted #112d4e;
+}
+
+.logoutBtn {
+    background: #111d4e;
+    margin-top: 20px;
+    padding: 8px 40px;
+    cursor: pointer;
+}
+
+.logoutBtn:hover {
+    background: rgba(17, 29, 78, 0.78);
+}
+
+.profileInfo {
+    position: absolute;
+    right: 0; top: 0;
+    padding-top: 100px;
+    width: 72%;
+    height: 100%;
+}
+
+/*SETTINGS*/
+.settingsSection {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.settingItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.settingItem label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.settingItem input[type="text"],
+.settingItem input[type="file"] {
+    text-align: center;
+    width: 80%;
+    height: 40px;
+    margin-bottom: 8px;
+}
+
+.settingItem button {
+    width: 80%;
+    height: 40px;
+    cursor: pointer;
+    background: #111d4e;
+    border: none;
+    color: white;
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.settingItem button:hover {
+    background: rgba(17, 29, 78, 0.78);
+    border-radius: 10px;
+}
+
+/*RIGHT SIDE*/
+
+/*CATEGORIES*/
+.categories {
+    padding-top: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    height: auto;
+}
+.categoriesWrapper {
+    width: 90%;
+    height: 100%;
+    display: grid;
+    gap: 1rem;
+    justify-content: space-evenly;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+.categoriesWrapper a {
+    display: flex;
+    width: 100%;
+    height: 200px;
+    text-decoration: none;
+    border-radius: 5px;
+
+    background-size: 100%;
+    background-position: center;
+
+    transition: background-size .5s ease;
+}
+.categoriesWrapper a:hover {
+    background-size: 110%;
+    border-radius: 5px;
+}
+.categoriesWrapper a p {
+    margin: auto;
+    color: white;
+    font-size: 2.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+@media (max-width: 800px) {
+    .profileSection {flex-direction: column; padding-bottom: 50px;}
+    .profileCard {border: none;}
+    .profileCard {width: 100%; position: relative;}
+    .profileInfo {position: relative; width: 100%; padding-top: 50px;}
+}

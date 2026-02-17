@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GingerJournal - Profile</title>
+
+    <link rel="icon" type="svg" href="https://pub-3a50bbfda00a49b2b959d58cd7bea019.r2.dev/Images/Logo/Icons/WhiteGinger.svg">
+    <link rel="stylesheet" href="GlobalFiles/HEADER_FOOTER.css">
+    <link rel="stylesheet" href="cssFiles/profile.css">
+    <style>header{background: #112d4e;}</style>
+
+</head>
+
+<body>
+    <div id="header" data-page="profile"></div>
+
+    <aside class="profileSection">
+        <div class="profileCard">
+            <div class="accountInfoBox" style="background-image: url('https://pub-3a50bbfda00a49b2b959d58cd7bea019.r2.dev/Images/CHINA/FUJIAN/FUZHOU/_MG_1797.JPG')"></div>
+            <img id="profilePic" class="profilePic" src="">
+            <h2 id="profileName"></h2>
+            <p id="profileEmail"></p>
+
+            <div class="settingsSection">
+                <!-- Change Name -->
+                <div class="settingItem">
+                    <label for="newName">Change Display Name</label>
+                    <input type="text" id="newName" placeholder="Enter new name">
+                    <button id="saveNameBtn">Save Name</button>
+                </div>
+
+                <!-- Change Profile Picture -->
+                <div class="settingItem">
+                    <label for="newPic">Change Profile Picture</label>
+                    <input type="file" id="newPic" accept="image/*">
+                    <button id="savePicBtn">Upload New Picture</button>
+                </div>
+            </div>
+
+            <button id="logoutBtn" class="logoutBtn">Logout</button>
+        </div>
+
+        <div class="profileInfo">
+            <section class="categories">
+                <div class="categoriesWrapper" oncontextmenu="return false;">
+                    <a href="" style="background-image: url('https://pub-3a50bbfda00a49b2b959d58cd7bea019.r2.dev/Images/CHINA/SHANDONG/QINGDAO/_MG_1307.jpg');"><p>Night</p></a>
+                    <a href="" style="background-image: url('https://pub-3a50bbfda00a49b2b959d58cd7bea019.r2.dev/Images/CHINA/SHANDONG/QINGDAO/Qingdao2.jpg');"><p>Sunny</p></a>
+                    <a href=""><p>Rain</p></a>
+                    <a href="" style="background-image: url('https://pub-3a50bbfda00a49b2b959d58cd7bea019.r2.dev/Images/NEWYORK/_MG_0548.JPG');"><p>Snow</p></a>
+                    <a href=""><p>People</p></a>
+                    <a href="" style="background-image: url('https://pub-3a50bbfda00a49b2b959d58cd7bea019.r2.dev/Images/FOOD/food1.JPG');"><p>Food</p></a>
+                    <a href="" style="background-image: url('https://pub-3a50bbfda00a49b2b959d58cd7bea019.r2.dev/Images/ANIMALS/IMG_1380.JPG')"><p>Animals</p></a>
+                    <a href="" style="background-image: url('https://pub-3a50bbfda00a49b2b959d58cd7bea019.r2.dev/Images/CHINA/LIAONING/_MG_0983.jpg');"><p>Buildings</p></a>
+                </div>
+            </section>
+        </div>
+    </aside>
+</body>
+    <script type="module" src="jsFiles/profile.js"></script>
+</html>

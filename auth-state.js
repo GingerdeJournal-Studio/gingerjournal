@@ -13,20 +13,24 @@ function renderLoggedIn(user) {
     desktopArea.innerHTML = `
     <div class="avatarWrapper">
         <img src="${user.photoURL}" class="avatar" id="logoutDesktop">
-        <span class="tooltip">Click To Logout</span>
+        <span class="tooltip">Settings</span>
     </div>
     `;
 
     mobileArea.innerHTML = `
     <div class="avatarWrapper">
         <div class="mobileWrapper" id="logoutMobile">
-            <p>LOGOUT</p>
+            <p>Settings</p>
         </div> 
     </div>
     `;
 
-    document.getElementById("logoutDesktop").onclick = () => signOut(auth);
-    document.getElementById("logoutMobile").onclick = () => signOut(auth);
+    document.getElementById("logoutDesktop").onclick = () => {
+        window.location.href = "profile.html";
+    };
+    document.getElementById("logoutMobile").onclick = () => {
+        window.location.href = "profile.html";
+    };
 }
 
 onAuthStateChanged(auth, (user) => {

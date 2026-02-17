@@ -132,7 +132,7 @@ header a:hover {color: white; font-weight: bold;}
     transition: 0.3s;
 }
 
-.desktopNav li {list-style: none;}
+.desktopNav li, .mobileNav li {list-style: none;}
 
 /* HAMBURGER */
 .menu {

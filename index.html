@@ -76,23 +76,5 @@
     </section>
 
 </body>
-    <script type="module">
-        import { loadComponent } from "./include.js";
-        import { initHeaderMenu, initHeaderScrollBehavior, initScrollPopup } from "./GlobalFiles/HEADER_FOOTER.js";
-
-        loadComponent("#header", "GlobalFiles/GlobalFiles.html", () => {
-            initHeaderMenu();
-            initHeaderScrollBehavior();
-            initScrollPopup();
-
-            const wait = setInterval(() => {
-                const el = document.getElementById("userArea");
-                if (el) {
-                    clearInterval(wait);
-                    import("./auth-state.js");
-                }
-            }, 30);
-        });
-    </script>
-    <script src ="GlobalFiles/HEADER_FOOTER.js"></script>
+    <script type="module" src="jsFiles/index.js"></script>
 </html>
