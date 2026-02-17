@@ -11,11 +11,10 @@ import {
 
 const storage = getStorage();
 
-
-import { auth } from "../firebase-init.js";
 import { onAuthStateChanged, signOut }
     from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
+import { auth, db } from "../firebase-init.js";
 import { loadComponent } from "../include.js";
 import {
     initHeaderMenu,
@@ -23,10 +22,11 @@ import {
     initScrollPopup
 } from "../GlobalFiles/HEADER_FOOTER.js";
 
+
 /* -----------------------------
    LOAD HEADER
 ------------------------------*/
-loadComponent("#header", "../GlobalFiles/GlobalFiles.html", () => {
+loadComponent("#header", "GlobalFiles/GlobalFiles.html", () => {
     initHeaderMenu();
     initHeaderScrollBehavior();
     initScrollPopup();
