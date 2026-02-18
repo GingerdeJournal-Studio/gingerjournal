@@ -21,33 +21,54 @@
         <div id="heroImage" oncontextmenu="return false;"></div>
     </section>
 
-    <div id="categoryFilters">
-        <button class="categoryBtn active" data-category="All">All</button>
-        <button class="categoryBtn" data-category="Travel">Travel</button>
-        <button class="categoryBtn" data-category="Food">Food</button>
-        <button class="categoryBtn" data-category="People">People</button>
-        <button class="categoryBtn" data-category="Nature">Nature</button>
-        <button class="categoryBtn" data-category="Animals">Animals</button>
-        <button class="categoryBtn" data-category="Objects">Objects</button>
-        <button class="categoryBtn" data-category="Daily Life">Daily Life</button>
-        <button class="categoryBtn" data-category="Events">Events</button>
-    </div>
-
-    <section class="photoGallery">
-        <div id="photoContainer" class="photoContainer" oncontextmenu="return false;"></div>
-    </section>
-
-    <div id="lightbox" class="lightbox hidden" oncontextmenu="return false;">
-        <div class="lightbox-content">
-            <span id="lightbox-close" class="lightbox-close">&times;</span>
-            <img id="lightbox-img" class="lightbox-img" src="">
-            <button id="lightbox-download" class="lightbox-download">Download</button>
+    <aside>
+        <div class="asideLeft">
+            <div id="categoryFilters">
+                <button class="categoryBtn active" data-category="All">All</button>
+                <button class="categoryBtn" data-category="Travel">Travel</button>
+                <button class="categoryBtn" data-category="Food">Food</button>
+                <button class="categoryBtn" data-category="People">People</button>
+                <button class="categoryBtn" data-category="Nature">Nature</button>
+                <button class="categoryBtn" data-category="Animals">Animals</button>
+                <button class="categoryBtn" data-category="Objects">Objects</button>
+                <button class="categoryBtn" data-category="Daily Life">Daily Life</button>
+                <button class="categoryBtn" data-category="Events">Events</button>
+            </div>
+            <section class="photoGallery">
+                <div id="photoContainer" class="photoContainer" oncontextmenu="return false;"></div>
+            </section>
+            <div id="lightbox" class="lightbox hidden" oncontextmenu="return false;">
+                <div class="lightbox-content">
+                    <span id="lightbox-close" class="lightbox-close">&times;</span>
+                    <img id="lightbox-img" class="lightbox-img" src="">
+                    <button id="lightbox-download" class="lightbox-download">Download</button>
+                </div>
+            </div>
+            <div class="paginationControls">
+                <button id="loadMoreBtn">Load More</button>
+            </div>
         </div>
-    </div>
+        <div class="asideRight">
+            <div class="asideRightContentBox">
+                <h3>Quick Tips • GingerJournal</h3>
+                <p>Find the photos you like, download them for free! Use filter to find more. Click on images to preview them!</p>
+                <div class="spanSet">
+                    <span><img src=""> Filter</span>
+                    <span><img src=""> Download</span>
+                    <span><img src=""> For Free</span>
+                </div>
+            </div>
 
-    <div class="paginationControls">
-        <button id="loadMoreBtn">Load More</button>
-    </div>
+            <div class="asideRightContentBox">
+                <h3>Resources Usage Rules</h3>
+                <span class="span1"><img src="https://pub-3a50bbfda00a49b2b959d58cd7bea019.r2.dev/Images/Logo/Icons/GINGEREARTH_ICON.svg"> <p>Free to use for personal only</p></span>
+                <span class="span1"><img src="https://pub-3a50bbfda00a49b2b959d58cd7bea019.r2.dev/Images/Logo/Icons/WEBSITE_ICON.svg"> <p>Editing allowed (color, crop, etc...)</p></span>
+                <span class="span1"><img src="https://pub-3a50bbfda00a49b2b959d58cd7bea019.r2.dev/Images/Logo/Icons/X_ICON.svg"> <p>Do not redistribute the original files</p></span>
+                <span class="span1"><img src="https://pub-3a50bbfda00a49b2b959d58cd7bea019.r2.dev/Images/Logo/Icons/BECREATIVE_ICON.svg"> <p>Must credit the website name</p></span>
+            </div>
+        </div>
+    </aside>
+
 
 </body>
     <script type="module" src="jsFiles/GingerResources.js"></script>

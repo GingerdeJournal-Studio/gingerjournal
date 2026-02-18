@@ -91,10 +91,71 @@
 
 }
 
+aside {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: auto;
+}
 
+.asideLeft {
+    margin-left: 5%;
+    width: 60%;
+}
 
+.asideRight {
+    margin-top: 85px;
+    display: flex;
+    flex-direction: column;
+    margin-right: 5%;
+    width: 28%;
+    height: 100vh;
+    gap: 30px;
+}
 
+.asideRightContentBox {
+    padding: 15px 0 40px 0;
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    background: white;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1)
+}
 
+.asideRightContentBox h3 {
+    padding: 0 30px;
+    margin-bottom: 15px;
+    color: #112d4e;
+    font-size: clamp(18px, 2vw, 1.5rem);
+}
+
+.asideRightContentBox p {
+    margin: 10px 0;
+    color: rgba(17, 45, 78, 0.85);
+    font-size: clamp(12px, 1vw, 15px);
+    padding: 0 30px;
+}
+
+.spanSet {margin-left: 30px;}
+.spanSet span {
+    font-size: 12px;
+    padding: 5px 5%;
+    border-radius: 15px;
+    color: white;
+    background: #112d4e;
+}
+
+.span1 {display: flex; align-items: center; margin-left: 30px;}
+.span1 p {padding: 0 10px;}
+
+.span1 img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+@media (max-width: 1000px) {.asideRightContentBox h3, .asideRightContentBox p {padding: 0 15px;} .spanSet, .span1 {margin-left: 15px;}}
+@media (max-width: 900px) {.asideLeft {width: 100%; margin-right: 5%;} .asideRight {display: none;}}
 
 
 
@@ -103,9 +164,9 @@
 
 
 .photoContainer {
-    padding: 30px 40px;
+    padding: 30px 0 40px;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 25px;
 }
 

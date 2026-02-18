@@ -169,7 +169,7 @@ document.addEventListener("click", (e) => {
 
     // Auto-scroll to top of gallery
     window.scrollTo({
-        top: document.getElementById("categoryFilters").offsetTop - 20,
+        top: document.getElementById("categoryFilters").offsetTop,
         behavior: "smooth"
     });
 
