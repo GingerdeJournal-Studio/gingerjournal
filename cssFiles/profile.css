@@ -34,14 +34,24 @@
     border: 5px dotted #112d4e;
 }
 
-.logoutBtn {
+.btnSet {
+    display: flex;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    gap: 10px;
+}
+
+.logoutBtn, .dashboardBtn {
     background: #111d4e;
     margin-top: 20px;
     padding: 8px 40px;
     cursor: pointer;
+    color: white;
+    font-weight: bold;
 }
 
-.logoutBtn:hover {
+.logoutBtn:hover, .dashboardBtn:hover {
     background: rgba(17, 29, 78, 0.78);
 }
 

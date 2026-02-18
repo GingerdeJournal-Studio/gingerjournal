@@ -12,6 +12,18 @@
 <body>
     <div id="header" data-page="gingerResources"></div>
 
+    <div id="categoryFilters">
+        <button class="categoryBtn active" data-category="All">All</button>
+        <button class="categoryBtn" data-category="Travel">Travel</button>
+        <button class="categoryBtn" data-category="Food">Food</button>
+        <button class="categoryBtn" data-category="People">People</button>
+        <button class="categoryBtn" data-category="Nature">Nature</button>
+        <button class="categoryBtn" data-category="Animals">Animals</button>
+        <button class="categoryBtn" data-category="Objects">Objects</button>
+        <button class="categoryBtn" data-category="Daily Life">Daily Life</button>
+        <button class="categoryBtn" data-category="Events">Events</button>
+    </div>
+
     <section class="photoGallery">
         <div id="photoContainer" class="photoContainer"></div>
     </section>
@@ -23,6 +35,11 @@
             <button id="lightbox-download" class="lightbox-download">Download</button>
         </div>
     </div>
+
+    <div class="paginationControls">
+        <button id="loadMoreBtn">Load More</button>
+    </div>
+
 </body>
     <script type="module" src="jsFiles/GingerResources.js"></script>
 </html>

@@ -48,6 +48,16 @@ onAuthStateChanged(auth, (user) => {
         return;
     }
 
+    // ADMIN DASHBOARD BUTTON
+    const dashboardBtn = document.getElementById("dashboardBtn");
+
+    if (user.email === "gingerdejournal@gmail.com") {
+        dashboardBtn.style.display = "block";
+        dashboardBtn.onclick = () => {
+            window.location.href = "dashboard.html";
+        };
+    }
+
     // Change Display Name
     const saveNameBtn = document.getElementById("saveNameBtn");
     const newNameInput = document.getElementById("newName");
@@ -67,12 +77,4 @@ onAuthStateChanged(auth, (user) => {
     emailEl.textContent = user.email;
 
     logoutBtn.onclick = () => signOut(auth);
-
-    /* -----------------------------
-       TEMPORARY DOWNLOAD HISTORY
-       (You can replace this later)
-    ------------------------------*/
-    downloadsList.innerHTML = `
-        <div class="downloadItem">No downloads yet.</div>
-    `;
 });

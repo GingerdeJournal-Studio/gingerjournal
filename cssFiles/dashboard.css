@@ -1,0 +1,37 @@
+
+
+.dashboardContainer {
+    max-width: 600px;
+    margin: 80px auto;
+    padding: 20px;
+}
+
+.formCard {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+}
+
+.formCard label {
+    display: block;
+    margin-top: 15px;
+    font-weight: 600;
+}
+
+.formCard input,
+.formCard textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+}
+
+#submitBtn {
+    margin-top: 20px;
+    padding: 12px 20px;
+    cursor: pointer;
+}
+
+#statusMsg {
+    margin-top: 20px;
+    font-weight: 600;
+}
