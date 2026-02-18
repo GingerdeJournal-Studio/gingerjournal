@@ -1,3 +1,5 @@
+* {transition: 0.3s all}
+
 /* USER AREA */
 .userArea, .mobileUserArea {
     display: flex;

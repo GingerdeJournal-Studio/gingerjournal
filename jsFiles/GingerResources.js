@@ -287,3 +287,27 @@ document.addEventListener("click", async (e) => {
         alert("Failed to update photo.");
     }
 });
+
+async function loadRandomHero() {
+    const hero = document.getElementById("heroImage");
+
+    const res = await fetch("https://royal-flower-d95a.gingerdejournal.workers.dev/");
+    const images = await res.json();
+
+    const random = images[Math.floor(Math.random() * images.length)];
+
+    console.log("Hero element:", hero);
+    console.log("Images:", images);
+    console.log("Random:", random);
+
+    hero.style.backgroundImage = `url('${random}')`;
+
+    requestAnimationFrame(() => {
+        hero.classList.add("visible");
+    });
+}
+
+loadRandomHero();
+
+
+

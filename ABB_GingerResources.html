@@ -12,6 +12,15 @@
 <body>
     <div id="header" data-page="gingerResources"></div>
 
+    <section id="heroSection">
+        <div class="heroLeft">
+            <h1>GingerResources</h1>
+            <p>Explore free photography presets, textures and quick guides!! Crafted for travel & street creators.</p>
+            <a href="ABC_BlogPosts.html">View My Blog</a>
+        </div>
+        <div id="heroImage" oncontextmenu="return false;"></div>
+    </section>
+
     <div id="categoryFilters">
         <button class="categoryBtn active" data-category="All">All</button>
         <button class="categoryBtn" data-category="Travel">Travel</button>
@@ -25,10 +34,10 @@
     </div>
 
     <section class="photoGallery">
-        <div id="photoContainer" class="photoContainer"></div>
+        <div id="photoContainer" class="photoContainer" oncontextmenu="return false;"></div>
     </section>
 
-    <div id="lightbox" class="lightbox hidden">
+    <div id="lightbox" class="lightbox hidden" oncontextmenu="return false;">
         <div class="lightbox-content">
             <span id="lightbox-close" class="lightbox-close">&times;</span>
             <img id="lightbox-img" class="lightbox-img" src="">

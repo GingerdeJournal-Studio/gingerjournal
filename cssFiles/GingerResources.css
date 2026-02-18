@@ -1,3 +1,107 @@
+#heroSection {
+    position: relative;
+    padding-top: 120px; padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 300px;
+}
+
+.heroLeft {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 5%;
+    width: 60%;
+    height: 80%;
+}
+
+.heroLeft h1 {
+    color: #112d4e;
+    font-size: clamp(18px, 5vw, 3rem);
+    padding-right: 100px;
+}
+
+.heroLeft p {
+    color: rgba(17, 45, 78, 0.85);
+    font-size: clamp(13px, 2vw, 1.2rem);
+    font-weight: 500;
+    padding-right: 10%;
+}
+
+.heroLeft a {
+    font-size: clamp(13px, 2vw, 15px);
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 15px;
+
+
+    padding: 10px 0;
+    background-color: #112d4e;
+    transition: 0.3s;
+}
+
+.heroLeft a:hover {
+    border-radius: 10px;
+    scale: 0.98;
+    cursor: pointer;
+}
+
+#heroImage {
+    margin-right: 5%;
+    width: 28%;
+    height: 80%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    border-radius: 10px;
+}
+
+#heroImage.visible {opacity: 1;}
+
+@media (max-width: 900px) {
+    .heroLeft {width: 47%;}
+    #heroImage {width: 40%;}
+}
+@media (max-width: 700px) {#heroSection {height: 200px;}}
+@media (max-width: 500px) {
+    #heroSection {
+        flex-direction: column;
+        margin-bottom: 230px;
+    }
+    .heroLeft {
+        position: relative;
+        margin: 250px 0;
+        width: 100%;
+    }
+    .heroLeft h1, .heroLeft p, .heroLeft a {padding: 0; margin: 0 auto; text-align: center;}
+    .heroLeft p {padding: 0 50px;}
+    .heroLeft a {width: 80%; padding: 8px 0; margin-top: 20px;}
+    #heroImage {
+        margin: 0;
+        position: absolute;
+        top: 130px;
+        width: 90%;
+        height: 220px;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
 .photoContainer {
     padding: 30px 40px;
     display: grid;
@@ -136,7 +240,7 @@ p {margin-top: -5px;}
    CATEGORY FILTER BAR
 ------------------------------------------*/
 #categoryFilters {
-    padding-top: 120px;
+    padding-top: 20px;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
@@ -196,6 +300,8 @@ p {margin-top: -5px;}
 #loadMoreBtn:active {
     transform: translateY(0);
 }
+
+
 
 
 
