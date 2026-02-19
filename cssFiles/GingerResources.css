@@ -103,6 +103,14 @@ aside {
     width: 60%;
 }
 
+.photoGallery h3 {
+    margin-top: 5px;
+    color: #112d4e;
+}
+
+.photoGallery p {margin-top: 0; color: #333; font-size: 14px;}
+.tag {margin-top: 10px; color: #777; font-size: 12px;}
+
 .asideRight {
     margin-top: 85px;
     display: flex;
