@@ -1,5 +1,8 @@
-* {transition: 0.3s all}
+/* RESET */
+* {margin: 0; padding: 0; transition: 0.3s all;}
+html, body {overscroll-behavior: none; background: #f1f1f1;}
 
+/*********** HEADER CSS CODE ***********/
 /* USER AREA */
 .userArea, .mobileUserArea {
     display: flex;
@@ -7,7 +10,6 @@
     justify-content: center;
     gap: 10px;
 }
-
 .loginBtn {
     padding: 10px 20px;
     color: white;
@@ -17,7 +19,6 @@
     background: rgba(255,255,255,0.3);
     transition: 0.3s;
 }
-
 .loginBtn:hover {
     background: #f1f1f1;
     color: #112d4e;
@@ -33,7 +34,6 @@
     object-fit: cover;
     transition: 0.3s;
 }
-
 .avatar:hover {cursor: pointer; scale: 0.95;}
 
 .logoutBtn {
@@ -45,7 +45,6 @@
     background: rgba(255,255,255,0.15);
     transition: 0.3s;
 }
-
 .logoutBtn:hover {
     background: rgba(255,255,255,0.3);
 }
@@ -57,7 +56,6 @@
     background: rgba(255,255,255,0.15);
     margin-bottom: -15px;
 }
-
 .mobileWrapper p {
     color: white;
     font-size: 20px;
@@ -65,7 +63,6 @@
     margin: auto;
     transition: 0.3s;
 }
-
 .mobileWrapper:hover .mobileWrapper p {scale: 0.95;}
 
 /*TOOLTIP*/
@@ -73,7 +70,6 @@
     position: relative;
     display: inline-block;
 }
-
 .tooltip {
     position: absolute;
     bottom: -35px;
@@ -89,16 +85,10 @@
     pointer-events: none;
     transition: 0.2s ease;
 }
-
 .avatarWrapper:hover .tooltip {
     opacity: 1;
     bottom: -35px;
 }
-
-/* RESET */
-* {margin: 0; padding: 0;}
-html, body {overscroll-behavior: none; background: #f1f1f1;}
-
 
 header {
     position: fixed;
@@ -110,8 +100,7 @@ header {
     background: none;
     z-index: 9999;
 }
-
-.logo {
+.logo, .logoChanged {
     margin-left: 35%;
     width: 230px; height: 150px;
     background-position: center;
@@ -119,6 +108,8 @@ header {
     background-repeat: no-repeat;
     transition: 0.3s;
 }
+
+.logoChanged {display: none;}
 
 header a {text-decoration: none; font-size: 20px; font-weight: 450; color: rgba(255, 255, 255, 0.75); transition: 0.3s; }
 header a:hover {color: white; font-weight: bold;}
@@ -133,7 +124,6 @@ header a:hover {color: white; font-weight: bold;}
     align-items: center;
     transition: 0.3s;
 }
-
 .desktopNav li, .mobileNav li {list-style: none;}
 
 /* HAMBURGER */
@@ -145,9 +135,7 @@ header a:hover {color: white; font-weight: bold;}
     flex-direction: column;
     justify-content: space-evenly;
 }
-
 .menu:hover {cursor: pointer;}
-
 .menu span {
     border-radius: 5px;
     width: 35px;
@@ -168,7 +156,6 @@ header a:hover {color: white; font-weight: bold;}
     flex-direction: column;
     text-align: center;
 }
-
 .mobileMenu a {
     display: block;
     padding: 14px 0;
@@ -180,7 +167,7 @@ header a:hover {color: white; font-weight: bold;}
 @media (max-width: 900px) {
     .desktopNav {display: none;}
     .menu {display: flex;}
-    .logo {margin-left: 20px;}
+    .logo,.logoChanged {margin-left: 20px;}
 
     .loginBtn {
         padding: 0;
@@ -233,15 +220,14 @@ header a:hover {color: white; font-weight: bold;}
 
 #header[data-page="home"] header {.PositionMain {color: white; font-weight: bold;}}
 #header[data-page="gingerResources"] header {background: #112d4e; .PositionGingerResources {color: white; font-weight: bold;}}
-#header[data-page="blogPosts"] header {background: #112d4e; .PositionBlogPosts {color: white; font-weight: bold;}}
+#header[data-page="blogPosts"] header {.PositionBlogPosts {color: white; font-weight: bold;}}
 #header[data-page="contact"] header {background: #112d4e; .PositionContact {color: white; font-weight: bold;}}
 
-#header[data-page="home"] header.transparent {
-    background: #112d4e;
-}
+#header[data-page="home"] header.transparent, #header[data-page="blogPosts"] header.transparent {background: #112d4e;}
+header.transparent {.logo {display: none;} .logoChanged {display: block;}}
 
 @media (max-width: 1200px) {.desktopNav {width: 60%;}}
-@media (max-width: 1000px) {.desktopNav {width: 65%;} .logo {margin-left: 10%;}}
+@media (max-width: 1000px) {.desktopNav {width: 65%;} .logo, .logoChanged {margin-left: 10%;}}
 
 /*SCROLL POPUP*/
 .scrollPopup {
@@ -259,9 +245,49 @@ header a:hover {color: white; font-weight: bold;}
     transition: opacity 0.4s ease, transform 0.4s ease;
     z-index: 9999;
 }
-
 .scrollPopup.show {
     opacity: 1;
     transform: translateY(0);
 }
 
+/*********** FOOTER CSS CODE ***********/
+footer {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: space-between;
+    background: #112d4e;
+}
+
+.footerLeft {
+    display: flex;
+    width: 40%;
+    height: 100%;
+}
+.footerLeft img {margin: auto; height: 100%;}
+
+@media (max-width: 750px) {.footerLeft img {height: 80%;}}
+@media (max-width: 600px) {.footerLeft {display: none;}}
+
+.footerRight {
+    display: flex;
+    justify-content: space-evenly;
+    width: 60%;
+    height: 100%;
+}
+.footerRight ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 20%;
+    height: 100%;
+}
+.footerRight ul h3 {color: white; font-size: clamp(15px, 2vw, 1.5rem);}
+.footerRight ul a {
+    list-style: none;
+    color: white;
+    text-decoration: none;
+}
+.footerRight ul a:hover {font-weight: bold;}
+
+@media (max-width: 600px) {.footerRight {width: 100%;}}

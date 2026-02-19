@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GingerJournal Posts</title>
+
+    <link rel="stylesheet" href="cssFiles/eachPost.css">
+    <link rel="stylesheet" href="GlobalFiles/HEADER_FOOTER.css">
+    <link rel="icon" type="svg" href="https://pub-3a50bbfda00a49b2b959d58cd7bea019.r2.dev/Images/Logo/Icons/WhiteGinger.svg">
+    <style>header {background: #112d4e;}</style>
+</head>
+
+<body>
+
+    <div id="header"></div>
+
+    <main class="postContainer">
+        <img id="postImage" class="postHero">
+
+        <div class="content">
+            <a href="ABC_BlogPosts.html" class="backBtn">← Back to Blog</a>
+            <h1 id="postTitle"></h1>
+            <p class="postMeta">
+                <span id="postDate"></span> •
+                <span id="postCategory"></span>
+            </p>
+            <p id="postExcerpt" class="postExcerpt" style="display: none;"></p>
+            <article id="postContent" class="postContent"></article>
+        </div>
+    </main>
+
+    <footer id="footer"></footer>
+
+    <script type="module" src="jsFiles/eachPost.js"></script>
+</body>
+</html>

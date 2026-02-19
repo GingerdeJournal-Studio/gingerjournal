@@ -1,33 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="UTF-8">
-    <title>BlogPosts</title>
-    <link rel="stylesheet" href="cssFiles/BlogPosts.css">
-    <link rel="stylesheet" href="GlobalFiles/HEADER_FOOTER.css">
-    <link rel="icon" type="svg" href="https://pub-3a50bbfda00a49b2b959d58cd7bea019.r2.dev/Images/Logo/Icons/WhiteGinger.svg">
-</head>
-<body>
-    <div id="header" data-page="blogPosts"></div>
-</body>
-    <script type="module">
-        import { loadComponent } from "./include.js";
-        import { initHeaderMenu, initHeaderScrollBehavior, initScrollPopup } from "./GlobalFiles/HEADER_FOOTER.js";
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>BlogPosts</title>
+        <link rel="stylesheet" href="GlobalFiles/HEADER_FOOTER.css">
+        <link rel="stylesheet" href="cssFiles/BlogPosts.css">
+        <link rel="icon" type="svg" href="https://pub-3a50bbfda00a49b2b959d58cd7bea019.r2.dev/Images/Logo/Icons/WhiteGinger.svg">
+    </head>
 
-        loadComponent("#header", "GlobalFiles/GlobalFiles.html", () => {
-            initHeaderMenu();
-            initHeaderScrollBehavior();
-            initScrollPopup();
+    <body>
 
-            const wait = setInterval(() => {
-                const el = document.getElementById("userArea");
-                if (el) {
-                    clearInterval(wait);
-                    import("./auth-state.js");
-                }
-            }, 30);
-        });
-    </script>
-    <script src ="GlobalFiles/HEADER_FOOTER.js"></script>
+        <header id="header" data-page="blogPosts"></header>
+
+        <div id="heroImage" oncontextmenu="return false;">
+            <h1>GingerJournal Blog</h1>
+            <p>Stories, travels, photography, and moments from my life.</p>
+        </div>
+
+        <nav class="filters">
+            <button class="filter active" data-category="All">All</button>
+            <button class="filter" data-category="Travel">Travel</button>
+            <button class="filter" data-category="Photography">Photography</button>
+            <button class="filter" data-category="China">China</button>
+            <button class="filter" data-category="New York">New York</button>
+            <button class="filter" data-category="Food">Food</button>
+            <button class="filter" data-category="Film">Film</button>
+        </nav>
+
+        <main class="blog-grid" id="blogGrid"></main>
+
+        <footer id="footer"></footer>
+
+        <script type="module">
+            import { loadComponent } from "./include.js";
+            import {
+                initHeaderMenu,
+                headerBehaviorChange,
+            } from "./GlobalFiles/HEADER_FOOTER.js";
+
+            loadComponent("#header", "GlobalFiles/HEADER.html", () => {
+                initHeaderMenu();
+                headerBehaviorChange();
+                import("./auth-state.js");
+            });
+            loadComponent("#footer", "GlobalFiles/FOOTER.html", () => {})
+        </script>
+        <script>
+            document.addEventListener("scroll", () => {
+                const header = document.querySelector('#heroImage');
+                if(window.scrollY > 0)
+                    header.classList.add('scrolled');
+                else
+                    header.classList.remove('scrolled');
+            })
+        </script>
+        <script type="module" src="jsFiles/blogPosts.js"></script>
+    </body>
 </html>

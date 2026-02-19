@@ -1,14 +1,14 @@
-
-
 .dashboardContainer {
-    max-width: 600px;
-    margin: 80px auto;
-    padding: 20px;
+    margin: 140px 0;
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
 }
 
 .formCard {
+    width: 40%;
     padding: 20px;
-    border: 1px solid #ddd;
+    border: 5px solid #112d4e;
     border-radius: 12px;
 }
 
@@ -19,15 +19,20 @@
 }
 
 .formCard input,
-.formCard textarea {
-    width: 100%;
+.formCard textarea,
+select {
+    width: 90%;
     padding: 10px;
     margin-top: 6px;
 }
 
-#submitBtn {
+#submitBtn, #savePostBtn {
+    background: #112d4e;
+    border-radius: 15px;
+    color: white;
+    font-weight: bold;
     margin-top: 20px;
-    padding: 12px 20px;
+    padding: 8px 20px;
     cursor: pointer;
 }
 

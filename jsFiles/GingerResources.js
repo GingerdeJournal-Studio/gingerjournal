@@ -20,18 +20,21 @@ import { loadComponent } from "../include.js";
 import {
     initHeaderMenu,
     initHeaderScrollBehavior,
-    initScrollPopup
+    initScrollPopup,
+    headerBehaviorChange,
 } from "../GlobalFiles/HEADER_FOOTER.js";
 
 /* -----------------------------------------
-   LOAD HEADER
+   LOAD HEADER/FOOTER
 ------------------------------------------*/
-loadComponent("#header", "GlobalFiles/GlobalFiles.html", () => {
+loadComponent("#header", "GlobalFiles/HEADER.html", () => {
     initHeaderMenu();
     initHeaderScrollBehavior();
     initScrollPopup();
+    headerBehaviorChange();
     import("../auth-state.js");
 });
+loadComponent("#footer", "GlobalFiles/FOOTER.html");
 
 /* -----------------------------------------
    CATEGORY FILTER STATE

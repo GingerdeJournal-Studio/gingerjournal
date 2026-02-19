@@ -25,14 +25,16 @@
             <div class="formImage"></div>
         </div>
     </section>
+
+    <footer id="footer"></footer>
 </body>
     <script type="module">
         import { loadComponent } from "./include.js";
-        import { initHeaderMenu, initHeaderScrollBehavior, initScrollPopup } from "./GlobalFiles/HEADER_FOOTER.js";
+        import { initHeaderMenu, headerBehaviorChange, initScrollPopup } from "./GlobalFiles/HEADER_FOOTER.js";
 
-        loadComponent("#header", "GlobalFiles/GlobalFiles.html", () => {
+        loadComponent("#header", "GlobalFiles/HEADER.html", () => {
             initHeaderMenu();
-            initHeaderScrollBehavior();
+            headerBehaviorChange();
             initScrollPopup();
 
             const wait = setInterval(() => {
@@ -43,6 +45,7 @@
                 }
             }, 30);
         });
+        loadComponent("#footer", "GlobalFiles/FOOTER.html", () => {})
     </script>
     <script src ="GlobalFiles/HEADER_FOOTER.js"></script>
 </html>

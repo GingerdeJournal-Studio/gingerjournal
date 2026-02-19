@@ -17,6 +17,21 @@ export function initHeaderScrollBehavior() {
     });
 }
 
+export function headerBehaviorChange() {
+    const headerEl = document.querySelector("#header header");
+    if (!headerEl) return;
+
+    window.addEventListener("scroll", () => {
+        const scrollY = window.scrollY;
+
+        if (scrollY > 0) {
+            headerEl.classList.add("transparent");
+        } else {
+            headerEl.classList.remove("transparent");
+        }
+    });
+}
+
 /* -----------------------------
    HAMBURGER MENU
 ------------------------------*/

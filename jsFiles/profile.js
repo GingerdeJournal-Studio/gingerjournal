@@ -18,7 +18,7 @@ import { auth, db } from "../firebase-init.js";
 import { loadComponent } from "../include.js";
 import {
     initHeaderMenu,
-    initHeaderScrollBehavior,
+    headerBehaviorChange,
     initScrollPopup
 } from "../GlobalFiles/HEADER_FOOTER.js";
 
@@ -26,9 +26,9 @@ import {
 /* -----------------------------
    LOAD HEADER
 ------------------------------*/
-loadComponent("#header", "GlobalFiles/GlobalFiles.html", () => {
+loadComponent("#header", "GlobalFiles/HEADER.html", () => {
     initHeaderMenu();
-    initHeaderScrollBehavior();
+    headerBehaviorChange();
     initScrollPopup();
     import("../auth-state.js");
 });

@@ -8,7 +8,7 @@ import {
     initScrollPopup
 } from "../GlobalFiles/HEADER_FOOTER.js";
 
-loadComponent("#header", "GlobalFiles/GlobalFiles.html", () => {
+loadComponent("#header", "GlobalFiles/HEADER.html", () => {
     initHeaderMenu();
     initHeaderScrollBehavior();
     initScrollPopup();
@@ -22,3 +22,4 @@ loadComponent("#header", "GlobalFiles/GlobalFiles.html", () => {
         }
     }, 30);
 });
+loadComponent("#footer", "GlobalFiles/FOOTER.html");

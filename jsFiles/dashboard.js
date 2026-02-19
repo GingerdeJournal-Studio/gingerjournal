@@ -19,12 +19,13 @@ import {
 /* -----------------------------------------
    LOAD HEADER
 ------------------------------------------*/
-loadComponent("#header", "GlobalFiles/GlobalFiles.html", () => {
+loadComponent("#header", "GlobalFiles/HEADER.html", () => {
     initHeaderMenu();
     initHeaderScrollBehavior();
     initScrollPopup();
     import("../auth-state.js");
 });
+loadComponent("#footer", "GlobalFiles/FOOTER.html");
 
 /* -----------------------------------------
    DOM ELEMENTS
@@ -103,4 +104,71 @@ submitBtn.addEventListener("click", async () => {
 
     submitBtn.disabled = false;
     submitBtn.textContent = "Add Photo";
+});
+
+/* -----------------------------------------
+   ADD BLOG POST
+------------------------------------------*/
+const titleInputP = document.getElementById("postTitle");
+const dateInput = document.getElementById("postDate");
+const categoryInput = document.getElementById("postCategory");
+const imageInput = document.getElementById("postImage");
+const excerptInput = document.getElementById("postExcerpt");
+const contentInput = document.getElementById("postContent");
+
+const saveBtn = document.getElementById("savePostBtn");
+const statusMessage = document.getElementById("statusMessage");
+
+// Create slug from title
+function createSlug(title) {
+    return title
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/(^-|-$)/g, "");
+}
+
+saveBtn.addEventListener("click", async () => {
+    const title = titleInputP.value.trim();
+    const date = dateInput.value.trim();
+    const category = categoryInput.value.trim();
+    const image = imageInput.value.trim();
+    const excerpt = excerptInput.value.trim();
+    const content = contentInput.value.trim();
+
+    if (!title || !date || !category || !image || !excerpt || !content) {
+        statusMessage.textContent = "Please fill out all fields.";
+        statusMessage.style.color = "red";
+        return;
+    }
+
+    const slug = createSlug(title);
+
+    try {
+        await addDoc(collection(db, "blogPosts"), {
+            title,
+            slug,
+            date,
+            category,
+            image,
+            excerpt,
+            content,
+            createdAt: serverTimestamp()
+        });
+
+        statusMessage.textContent = "Post published successfully!";
+        statusMessage.style.color = "green";
+
+        // Clear form
+        titleInputP.value = "";
+        dateInput.value = "";
+        categoryInput.value = "";
+        imageInput.value = "";
+        excerptInput.value = "";
+        contentInput.value = "";
+
+    } catch (error) {
+        statusMessage.textContent = "Error publishing post.";
+        statusMessage.style.color = "red";
+        console.error(error);
+    }
 });

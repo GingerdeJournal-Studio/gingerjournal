@@ -12,51 +12,90 @@
 </head>
 
 <body>
-<div id="header" data-page="dashboard"></div>
+    <header id="header" data-page="dashboard"></header>
 
-<main class="dashboardContainer">
+    <main class="dashboardContainer">
 
-    <h1>GingerResources Admin Dashboard</h1>
+        <div class="formCard">
+            <h2>Add New Photo</h2>
 
-    <div class="formCard">
-        <h2>Add New Photo</h2>
+            <!-- PHOTO URL -->
+            <label>Photo URL</label>
+            <input type="text" id="photoURL" placeholder="https://...">
 
-        <!-- PHOTO URL -->
-        <label>Photo URL</label>
-        <input type="text" id="photoURL" placeholder="https://...">
+            <!-- TITLE -->
+            <label>Title</label>
+            <input type="text" id="photoTitle" placeholder="Photo title">
 
-        <!-- TITLE -->
-        <label>Title</label>
-        <input type="text" id="photoTitle" placeholder="Photo title">
+            <!-- DESCRIPTION -->
+            <label>Description</label>
+            <textarea id="photoDesc" placeholder="Short description"></textarea>
 
-        <!-- DESCRIPTION -->
-        <label>Description</label>
-        <textarea id="photoDesc" placeholder="Short description"></textarea>
+            <!-- CATEGORY -->
+            <label>Category</label>
+            <select id="photoCategory">
+                <option value="Travel">Travel</option>
+                <option value="Food">Food</option>
+                <option value="People">People</option>
+                <option value="Nature">Nature</option>
+                <option value="Animals">Animals</option>
+                <option value="Objects">Objects</option>
+                <option value="Daily Life">Daily Life</option>
+                <option value="Events">Events</option>
+            </select>
 
-        <!-- CATEGORY -->
-        <label>Main Category</label>
-        <select id="photoCategory">
-            <option value="Travel">Travel</option>
-            <option value="Food">Food</option>
-            <option value="People">People</option>
-            <option value="Nature">Nature</option>
-            <option value="Animals">Animals</option>
-            <option value="Objects">Objects</option>
-            <option value="Daily Life">Daily Life</option>
-            <option value="Events">Events</option>
-        </select>
+            <!-- TAGS -->
+            <label>Tags (comma separated)</label>
+            <input type="text" id="photoTags" placeholder="Night, City, Portrait">
 
-        <!-- TAGS -->
-        <label>Tags (comma separated)</label>
-        <input type="text" id="photoTags" placeholder="Night, City, Portrait">
+            <!-- SUBMIT -->
+            <button id="submitBtn">Add Photo</button>
+            <p id="statusMsg"></p>
+        </div>
 
-        <!-- SUBMIT -->
-        <button id="submitBtn">Add Photo</button>
-    </div>
+        <!-- ADD BLOG POST -->
+        <div class="formCard">
+            <h2>Add New Blog Post</h2>
 
-    <p id="statusMsg"></p>
+            <!-- BLOG TITLE -->
+            <label>Post Title</label>
+            <input type="text" id="postTitle" placeholder="Blog post title">
 
-</main>
+            <!-- BLOG DATE -->
+            <label>Date</label>
+            <input type="date" id="postDate">
+
+            <!-- BLOG CATEGORY -->
+            <label>Category</label>
+            <select id="postCategory">
+                <option value="Travel">Travel</option>
+                <option value="Photography">Photography</option>
+                <option value="China">China</option>
+                <option value="New York">New York</option>
+                <option value="Food">Food</option>
+                <option value="Film">Film</option>
+                <option value="Daily Life">Daily Life</option>
+            </select>
+
+            <!-- COVER IMAGE URL -->
+            <label>Cover Image URL</label>
+            <input type="text" id="postImage" placeholder="https://...">
+
+            <!-- EXCERPT -->
+            <label>Short Excerpt</label>
+            <textarea id="postExcerpt" placeholder="Short preview text..."></textarea>
+
+            <!-- FULL CONTENT -->
+            <label>Full Content</label>
+            <textarea id="postContent" placeholder="Full blog post content..." style="height: 150px;"></textarea>
+
+            <!-- SUBMIT -->
+            <button id="savePostBtn">Add Blog Post</button>
+            <p id="statusMessage"></p>
+        </div>
+    </main>
+
+    <footer id="footer"></footer>
 
 <script type="module" src="jsFiles/dashboard.js"></script>
 </body>
