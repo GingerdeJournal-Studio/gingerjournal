@@ -5,8 +5,8 @@ const desktopArea = document.getElementById("userArea");
 const mobileArea = document.getElementById("mobileUserArea");
 
 function renderLoggedOut() {
-    desktopArea.innerHTML = `<a href="login.html" class="loginBtn">LOGIN</a>`;
-    mobileArea.innerHTML = `<a href="login.html" class="loginBtn">LOGIN HERE</a>`;
+    desktopArea.innerHTML = `<a href="login.html" class="loginBtn"><img src="https://pub-3a50bbfda00a49b2b959d58cd7bea019.r2.dev/Images/Logo/Icons/USER_ICON.svg"></a>`;
+    mobileArea.innerHTML = `<a href="login.html" class="loginBtn"><img src="https://pub-3a50bbfda00a49b2b959d58cd7bea019.r2.dev/Images/Logo/Icons/USER_ICON.svg">LOGIN HERE</a>`;
 }
 
 function renderLoggedIn(user) {

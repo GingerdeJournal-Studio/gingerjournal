@@ -25,13 +25,12 @@
     text-decoration: none;
     border-radius: 5px;
 
-    background-size: 100%;
+    background-size: cover;
     background-position: center;
-
-    transition: background-size .5s ease;
+    background-repeat: no-repeat;
 }
 .recommendWrapper a:hover, .categoriesWrapper a:hover {
-    background-size: 110%;
+    background-size: 120%;
     border-radius: 5px;
 }
 .recommendWrapper a p, .categoriesWrapper a p {

@@ -11,17 +11,14 @@ html, body {overscroll-behavior: none; background: #f1f1f1;}
     gap: 10px;
 }
 .loginBtn {
-    padding: 10px 20px;
-    color: white;
-    font-size: 18px;
-    border-radius: 10px;
-    font-weight: bold;
-    background: rgba(255,255,255,0.3);
+    margin-top: 15px;
+    opacity: 0.8;
     transition: 0.3s;
 }
+
+.loginBtn img {margin: auto; height: 40px;}
 .loginBtn:hover {
-    background: #f1f1f1;
-    color: #112d4e;
+    opacity: 1;
     cursor: pointer;
     border-radius: 5px;
 }
@@ -111,7 +108,7 @@ header {
 
 .logoChanged {display: none;}
 
-header a {text-decoration: none; font-size: 20px; font-weight: 450; color: rgba(255, 255, 255, 0.75); transition: 0.3s; }
+header a {text-decoration: none; font-size: 18px; font-weight: 450; color: rgba(255, 255, 255, 0.75); transition: 0.3s; }
 header a:hover {color: white; font-weight: bold;}
 
 .desktopNav {
