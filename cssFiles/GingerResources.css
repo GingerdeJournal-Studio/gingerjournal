@@ -259,15 +259,14 @@ p {margin-top: -5px;}
     position: relative;
     display: flex;
     flex-direction: column;
-    max-width: 60%;
-    max-height: 100%;
     align-items: center;
 }
 
 .lightbox-img {
+    width: 70%;
     max-height: 75vh;
     border-radius: 8px;
-    border: 10px solid white;
+    border: 5px solid white;
 }
 
 .lightbox-download {
