@@ -116,12 +116,13 @@ async function loadPhotos(initial = false) {
                      data-download="${downloadURL}">
                 </div>
 
+                <!--
                 <h3>${photo.title}</h3>
                 <p>${photo.description}</p>
 
                 <div class="tag">${tagHTML}</div>
 
-                <!--
+                
                 <button class="downloadBtn"
                         data-url="${downloadURL}">
                     Download

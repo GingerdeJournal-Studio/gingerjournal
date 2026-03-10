@@ -135,7 +135,7 @@ saveBtn.addEventListener("click", async () => {
     const excerpt = excerptInput.value.trim();
     const content = contentInput.value.trim();
 
-    if (!title || !date || !category || !image || !excerpt || !content) {
+    if (!title) {
         statusMessage.textContent = "Please fill out all fields.";
         statusMessage.style.color = "red";
         return;

@@ -1,5 +1,5 @@
 /* RESET */
-* {margin: 0; padding: 0; transition: 0.3s all;}
+* {margin: 0; padding: 0; transition: 0.3s all; text-decoration: none;}
 html, body {overscroll-behavior: none; background: #f1f1f1;}
 
 /*********** HEADER CSS CODE ***********/
@@ -8,8 +8,10 @@ html, body {overscroll-behavior: none; background: #f1f1f1;}
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
 }
+
+.mobileUserArea {position: absolute; bottom: 55px;}
+
 .loginBtn {
     margin-top: 15px;
     opacity: 0.8;
@@ -125,6 +127,7 @@ header a:hover {color: white; font-weight: bold;}
 
 /* HAMBURGER */
 .menu {
+    z-index: 616;
     position: absolute;
     right: 50px;
     height: 40px;
@@ -132,7 +135,7 @@ header a:hover {color: white; font-weight: bold;}
     flex-direction: column;
     justify-content: space-evenly;
 }
-.menu:hover {cursor: pointer;}
+.menu:hover, .userArea:hover, .mobileUserArea:hover {cursor: pointer;}
 .menu span {
     border-radius: 5px;
     width: 35px;
@@ -141,19 +144,20 @@ header a:hover {color: white; font-weight: bold;}
     transition: 0.3s;
 }
 
-/* MOBILE MENU DROPDOWN */
 .mobileMenu {
     display: none;
+    flex-direction: column;
     position: fixed;
-    top: 100px;
+    top: 0;
     left: 0;
     width: 100%;
+    height: 100vh;
     background: #112d4e;
     padding: 20px 0;
-    flex-direction: column;
-    text-align: center;
+    transition: 0.3s;
 }
 .mobileMenu a {
+    margin-left: 50px;
     display: block;
     padding: 14px 0;
     color: white;
@@ -187,31 +191,10 @@ header a:hover {color: white; font-weight: bold;}
 .menu.active span:nth-child(2) {opacity: 0;}
 .menu.active span:nth-child(3) {transform: translateY(-12px) rotate(-45deg);}
 
-/* --- MOBILE MENU ANIMATION --- */
-.mobileMenu {
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    top: 10vh;
-    left: 0;
-    width: 100%;
-    background: #112d4e;
-    padding: 20px 0;
-
-    /* Start hidden */
-    opacity: 0;
-    transform: translateY(-20px);
-    pointer-events: none;
-
-    transition: 0.4s ease;
-}
-
 /* When menu is open */
 @media (max-width: 900px) {
     .mobileMenu.open {
-        opacity: 1;
-        transform: translateY(0);
-        pointer-events: auto;
+        display: flex;
     }
 }
 
