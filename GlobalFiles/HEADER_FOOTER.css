@@ -1,5 +1,5 @@
 /* RESET */
-* {margin: 0; padding: 0; transition: 0.3s all; text-decoration: none;}
+* {margin: 0; padding: 0; text-decoration: none;}
 html, body {overscroll-behavior: none; background: #f1f1f1;}
 
 /*********** HEADER CSS CODE ***********/
