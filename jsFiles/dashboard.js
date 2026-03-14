@@ -68,7 +68,7 @@ submitBtn.addEventListener("click", async () => {
         .map(t => t.trim())
         .filter(t => t.length > 0);
 
-    if (!url || !title || !description) {
+    if (!url) {
         alert("Please fill in URL, title, and description.");
         return;
     }
