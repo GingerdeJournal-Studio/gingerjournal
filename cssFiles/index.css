@@ -27,7 +27,7 @@
     flex-direction: column;
     justify-content: center;
 }
-.aboutRight p {font-size: clamp(15px, 1vw, 18px);}
+.aboutRight p {font-size: clamp(15px, 2vw, 16px);}
 .ourMission {margin-top: 20px;}
 .aboutRightBtn {
     text-transform: uppercase;
@@ -223,7 +223,6 @@
 .section-header h1 {
     text-transform: uppercase;
     font-size: clamp(20px, 5vw, 2.5rem);
-    font-weight: 800;
     color: #112d4e;
 }
 .scene-grid {
