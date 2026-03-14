@@ -23,3 +23,23 @@ loadComponent("#header", "GlobalFiles/HEADER.html", () => {
     }, 30);
 });
 loadComponent("#footer", "GlobalFiles/FOOTER.html");
+
+// use a script tag or an external JS file
+document.addEventListener("DOMContentLoaded", (event) => {
+    gsap.registerPlugin(ScrollTrigger)
+
+    let horizontalSection = document.querySelector(".horizontal");
+
+    gsap.to(".horizontal", {
+        x: ()=> -(horizontalSection.scrollWidth - window.innerWidth),
+        scrollTrigger: {
+            trigger: ".horizontal",
+            start: "center center",
+            end: () => "+=" + (horizontalSection.scrollWidth - 50),
+            pin: "#horizontalScroll",
+            scrub: 1,
+            invalidateOnRefresh: true
+        }
+    })
+});
+
