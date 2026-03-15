@@ -96,3 +96,14 @@ hero.style.backgroundImage = `url('${random}')`;
 requestAnimationFrame(() => {
     hero.classList.add("visible");
 });
+
+const headerEl = document.querySelector("#header header");
+window.addEventListener("scroll", () => {
+    const scrollY = window.scrollY;
+
+    if (scrollY > 200) {
+        headerEl.classList.add("transparent");
+    } else {
+        headerEl.classList.remove("transparent");
+    }
+});

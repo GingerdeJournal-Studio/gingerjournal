@@ -42,10 +42,26 @@ loadComponent("#footer", "GlobalFiles/FOOTER.html");
 let currentCategory = "All";
 
 /* -----------------------------------------
+   READ CATEGORY FROM URL (IF ANY)
+------------------------------------------*/
+const params = new URLSearchParams(window.location.search);
+const categoryFromURL = params.get("category");
+
+if (categoryFromURL) {
+    currentCategory = categoryFromURL;
+
+    // highlight the correct button
+    document.querySelectorAll(".categoryBtn").forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.category === categoryFromURL);
+    });
+}
+
+
+/* -----------------------------------------
    PAGINATION STATE
 ------------------------------------------*/
 let lastVisible = null;
-const PAGE_SIZE = 20;
+const PAGE_SIZE = 40;
 let loading = false;
 
 /* -----------------------------------------
@@ -175,7 +191,7 @@ document.addEventListener("click", (e) => {
 
     // Auto-scroll to top of gallery
     window.scrollTo({
-        top: document.getElementById("categoryFilters").offsetTop,
+        top: document.getElementById("aside").offsetTop - 100,
         behavior: "smooth"
     });
 

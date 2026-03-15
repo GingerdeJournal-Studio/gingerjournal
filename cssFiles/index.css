@@ -99,13 +99,14 @@
 .recommendWrapper a, .categoriesWrapper a {
     display: flex;
     width: 100%;
-    height: 200px;
+    height: 170px;
     text-decoration: none;
     border-radius: 5px;
 
-    background-size: cover;
+    background-size: 100%;
     background-position: center;
     background-repeat: no-repeat;
+    transition: 0.3s;
 }
 .recommendWrapper a:hover, .categoriesWrapper a:hover {
     background-size: 120%;

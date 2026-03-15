@@ -1,3 +1,7 @@
+body {
+    height: 2000px;
+}
+
 .profileSection {
     width: 100%;
     height: auto;
@@ -7,22 +11,20 @@
 }
 
 .profileCard {
-    position: fixed;
-    top: 0;
-    left: 0;
     font-size: 15px;
     padding-top: 100px;
     border-right: 4px solid #112d4e;
-    width: 28%;
-    height: 100%;
+    width: 100%;
+    height: auto;
     text-align: center;
 }
 
 .accountInfoBox {
+    margin-top: -100px;
     background-size: cover;
     background-position: center;
     width: 100%;
-    height: 150px;
+    height: 300px;
     border-bottom: 5px dotted #112d4e;
 }
 
@@ -105,6 +107,14 @@
 .settingItem button:hover {
     background: rgba(17, 29, 78, 0.78);
     border-radius: 10px;
+}
+
+@media (max-width: 700px) {
+    .profileCard {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 /*RIGHT SIDE*/
