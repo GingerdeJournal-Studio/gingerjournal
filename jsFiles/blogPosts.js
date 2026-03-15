@@ -24,6 +24,17 @@ async function loadPosts() {
     }));
 }
 
+/* -----------------------------------------
+   READ CATEGORY FROM URL (IF ANY)
+------------------------------------------*/
+const params = new URLSearchParams(window.location.search);
+const categoryFromURL = params.get("category");
+
+let initialCategory = "All";
+if (categoryFromURL) {
+    initialCategory = categoryFromURL;
+}
+
 // Render posts
 async function renderPosts(category = "All") {
     blogGrid.innerHTML = "";
@@ -63,7 +74,13 @@ filterButtons.forEach(btn => {
 });
 
 // Initial load
-renderPosts();
+renderPosts(initialCategory);
+
+if (categoryFromURL) {
+    document.querySelectorAll(".filter").forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.category === categoryFromURL);
+    });
+}
 
 // RANDOM HERO PHOTO
 async function loadRandomHero() {
