@@ -111,6 +111,7 @@ submitBtn.addEventListener("click", async () => {
 ------------------------------------------*/
 const titleInputP = document.getElementById("postTitle");
 const dateInput = document.getElementById("postDate");
+const locationInput = document.getElementById("postLocation");
 const categoryInput = document.getElementById("postCategory");
 const imageInput = document.getElementById("postImage");
 const excerptInput = document.getElementById("postExcerpt");
@@ -130,6 +131,7 @@ function createSlug(title) {
 saveBtn.addEventListener("click", async () => {
     const title = titleInputP.value.trim();
     const date = dateInput.value.trim();
+    const location = locationInput.value.trim();
     const category = categoryInput.value.trim();
     const image = imageInput.value.trim();
     const excerpt = excerptInput.value.trim();
@@ -147,6 +149,7 @@ saveBtn.addEventListener("click", async () => {
             title,
             slug,
             date,
+            location,
             category,
             image,
             excerpt,
@@ -160,6 +163,7 @@ saveBtn.addEventListener("click", async () => {
         // Clear form
         titleInputP.value = "";
         dateInput.value = "";
+        locationInput.value = "";
         categoryInput.value = "";
         imageInput.value = "";
         excerptInput.value = "";

@@ -33,6 +33,7 @@ const slug = params.get("slug");
 const postImage = document.getElementById("postImage");
 const postTitle = document.getElementById("postTitle");
 const postDate = document.getElementById("postDate");
+const postLocation = document.getElementById("postLocation");
 const postCategory = document.getElementById("postCategory");
 const postExcerpt = document.getElementById("postExcerpt");
 const postContent = document.getElementById("postContent");
@@ -61,6 +62,7 @@ async function loadPost() {
     postImage.src = data.image;
     postTitle.textContent = data.title;
     postDate.textContent = data.date;
+    postLocation.textContent = data.location;
     postCategory.textContent = data.category;
     postExcerpt.textContent = data.excerpt;
     postContent.innerHTML = data.content.replace(/\n/g, "<br>");
