@@ -59,18 +59,18 @@ onAuthStateChanged(auth, (user) => {
     }
 
     // Change Display Name
-    const saveNameBtn = document.getElementById("saveNameBtn");
-    const newNameInput = document.getElementById("newName");
-
-    saveNameBtn.onclick = async () => {
-        const newName = newNameInput.value.trim();
-        if (!newName) return alert("Please enter a name.");
-
-        await updateProfile(user, { displayName: newName });
-
-        nameEl.textContent = newName;
-        alert("Name updated!");
-    };
+    // const saveNameBtn = document.getElementById("saveNameBtn");
+    // const newNameInput = document.getElementById("newName");
+    //
+    // saveNameBtn.onclick = async () => {
+    //     const newName = newNameInput.value.trim();
+    //     if (!newName) return alert("Please enter a name.");
+    //
+    //     await updateProfile(user, { displayName: newName });
+    //
+    //     nameEl.textContent = newName;
+    //     alert("Name updated!");
+    // };
 
     pic.src = user.photoURL;
     nameEl.textContent = user.displayName;
@@ -97,13 +97,19 @@ requestAnimationFrame(() => {
     hero.classList.add("visible");
 });
 
-const headerEl = document.querySelector("#header header");
+const headerEl = document.querySelector("#heroImage");
+const profileEl = document.querySelector("#profileCard");
+const profilePicEl = document.querySelector("#profilePic");
 window.addEventListener("scroll", () => {
     const scrollY = window.scrollY;
 
-    if (scrollY > 200) {
+    if (scrollY > 0) {
         headerEl.classList.add("transparent");
+        profileEl.classList.add("transparent");
+        profilePicEl.classList.add("transparent");
     } else {
         headerEl.classList.remove("transparent");
+        profileEl.classList.remove("transparent");
+        profilePicEl.classList.remove("transparent");
     }
 });

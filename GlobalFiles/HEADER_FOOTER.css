@@ -201,9 +201,7 @@ header a:hover {color: white; font-weight: bold;}
 #header[data-page="gingerResources"] header {background: #112d4e; .PositionGingerResources a {color: white; font-weight: bold;}}
 #header[data-page="blogPosts"] header {.PositionBlogPosts a {color: white; font-weight: bold;}}
 #header[data-page="contact"] header {background: #112d4e; .PositionContact a {color: white; font-weight: bold;}}
-#header[data-page="profile"] header {background: none;}
 
-#header[data-page="profile"] header.transparent {background: #112d4e;}
 #header[data-page="home"] header.transparent, #header[data-page="blogPosts"] header.transparent {background: #112d4e;}
 header.transparent {.logo {display: none;} .logoChanged {display: block;}}
 

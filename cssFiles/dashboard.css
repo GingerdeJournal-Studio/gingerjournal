@@ -40,3 +40,15 @@ select {
     margin-top: 20px;
     font-weight: 600;
 }
+
+@media (max-width: 900px) {
+    .dashboardContainer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .formCard {
+        width: 90%;
+        margin-top: 20px;
+    }
+}

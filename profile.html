@@ -13,29 +13,15 @@
 </head>
 
 <body>
-    <div id="header" data-page="profile"></div>
-
     <div class="profileSection">
-        <div class="profileCard">
-            <div class="accountInfoBox" id="heroImage" oncontextmenu="return false;"></div>
+        <div class="accountInfoBox" id="heroImage" oncontextmenu="return false;"></div>
+
+        <div id="profileCard" class="profileCard">
             <img id="profilePic" class="profilePic">
-            <h2 id="profileName"></h2>
-            <p id="profileEmail"></p>
-
-            <div class="settingsSection">
-                <!-- Change Name -->
-                <div class="settingItem">
-                    <label for="newName">Change Display Name</label>
-                    <input type="text" id="newName" placeholder="Enter new name">
-                    <button id="saveNameBtn">Save Name</button>
-                </div>
-
-                <!-- Change Profile Picture -->
-                <div class="settingItem">
-                    <label for="newPic">Change Profile Picture</label>
-                    <input type="file" id="newPic" accept="image/*">
-                    <button id="savePicBtn">Upload New Picture</button>
-                </div>
+            <div class="nameEmail">
+                <a href="index.html" style="text-decoration: none; color: black;"><-- Back To Home</a>
+                <h2 id="profileName"></h2>
+                <p id="profileEmail"></p>
             </div>
 
             <div class="btnSet">
@@ -43,9 +29,23 @@
                 <button id="dashboardBtn" class="dashboardBtn" style="display: none;">Admin Dashboard</button>
             </div>
         </div>
-
-
     </div>
+
+<!--    <div class="settingsSection">-->
+<!--        &lt;!&ndash; Change Name &ndash;&gt;-->
+<!--        <div class="settingItem">-->
+<!--            <label for="newName">Change Display Name</label>-->
+<!--            <input type="text" id="newName" placeholder="Enter new name">-->
+<!--            <button id="saveNameBtn">Save Name</button>-->
+<!--        </div>-->
+
+<!--        &lt;!&ndash; Change Profile Picture &ndash;&gt;-->
+<!--        <div class="settingItem">-->
+<!--            <label for="newPic">Change Profile Picture</label>-->
+<!--            <input type="file" id="newPic" accept="image/*">-->
+<!--            <button id="savePicBtn">Upload New Picture</button>-->
+<!--        </div>-->
+<!--    </div>-->
 </body>
     <script type="module" src="jsFiles/profile.js"></script>
 </html>
