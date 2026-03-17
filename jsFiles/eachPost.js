@@ -30,7 +30,6 @@ const params = new URLSearchParams(window.location.search);
 const slug = params.get("slug");
 
 // DOM elements
-const postImage = document.getElementById("postImage");
 const postTitle = document.getElementById("postTitle");
 const postDate = document.getElementById("postDate");
 const postLocation = document.getElementById("postLocation");
@@ -44,7 +43,6 @@ async function loadPost() {
         return;
     }
 
-    // ⭐ Query by slug instead of doc ID
     const q = query(
         collection(db, "blogPosts"),
         where("slug", "==", slug)
@@ -59,7 +57,13 @@ async function loadPost() {
 
     const data = snap.docs[0].data();
 
-    postImage.src = data.image;
+    // Combine hero + slider images
+    const sliderImages = (data.sliderImages || []).filter(url => url && url.trim() !== "");
+    const allImages = [data.image, ...sliderImages];
+    console.log("All images:", allImages);
+
+    renderSlider(allImages);
+
     postTitle.textContent = data.title;
     postDate.textContent = data.date;
     postLocation.textContent = data.location;
@@ -67,5 +71,41 @@ async function loadPost() {
     postExcerpt.textContent = data.excerpt;
     postContent.innerHTML = data.content.replace(/\n/g, "<br>");
 }
+
+
+function renderSlider(images) {
+    const slider = document.getElementById("postSlider");
+    const track = document.getElementById("sliderTrack");
+
+    if (!images || images.length === 0) return;
+
+    slider.style.display = "block";
+
+    images.forEach(url => {
+        const img = document.createElement("img");
+        img.src = url;
+        track.appendChild(img);
+    });
+
+    let index = 0;
+
+    const prevBtn = document.getElementById("sliderPrev");
+    const nextBtn = document.getElementById("sliderNext");
+
+    function updateSlider() {
+        track.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    nextBtn.addEventListener("click", () => {
+        index = (index + 1) % images.length;
+        updateSlider();
+    });
+
+    prevBtn.addEventListener("click", () => {
+        index = (index - 1 + images.length) % images.length;
+        updateSlider();
+    });
+}
+
 
 loadPost();

@@ -28,7 +28,7 @@ loadComponent("#header", "GlobalFiles/HEADER.html", () => {
 loadComponent("#footer", "GlobalFiles/FOOTER.html");
 
 /* -----------------------------------------
-   DOM ELEMENTS
+   DOM ELEMENTS (PHOTO UPLOAD)
 ------------------------------------------*/
 const urlInput = document.getElementById("photoURL");
 const titleInput = document.getElementById("photoTitle");
@@ -89,7 +89,6 @@ submitBtn.addEventListener("click", async () => {
         statusMsg.textContent = "Photo added successfully!";
         statusMsg.style.color = "green";
 
-        // Clear form
         urlInput.value = "";
         titleInput.value = "";
         descInput.value = "";
@@ -114,13 +113,13 @@ const dateInput = document.getElementById("postDate");
 const locationInput = document.getElementById("postLocation");
 const categoryInput = document.getElementById("postCategory");
 const imageInput = document.getElementById("postImage");
+const imageSliderInput = document.getElementById("postImageSlider");
 const excerptInput = document.getElementById("postExcerpt");
 const contentInput = document.getElementById("postContent");
 
 const saveBtn = document.getElementById("savePostBtn");
 const statusMessage = document.getElementById("statusMessage");
 
-// Create slug from title
 function createSlug(title) {
     return title
         .toLowerCase()
@@ -129,16 +128,28 @@ function createSlug(title) {
 }
 
 saveBtn.addEventListener("click", async () => {
+    try {
+        requireAdmin();
+    } catch {
+        return;
+    }
+
     const title = titleInputP.value.trim();
     const date = dateInput.value.trim();
     const location = locationInput.value.trim();
     const category = categoryInput.value.trim();
     const image = imageInput.value.trim();
+    const sliderImagesRaw = imageSliderInput.value.trim();
     const excerpt = excerptInput.value.trim();
     const content = contentInput.value.trim();
 
+    const sliderImages = sliderImagesRaw
+        ? sliderImagesRaw.split("\n").map(url => url.trim()).filter(url => url !== "")
+        : [];
+
     if (!title) {
         statusMessage.style.color = "red";
+        statusMessage.textContent = "Title is required.";
         return;
     }
 
@@ -152,6 +163,7 @@ saveBtn.addEventListener("click", async () => {
             location,
             category,
             image,
+            sliderImages,
             excerpt,
             content,
             createdAt: serverTimestamp()
@@ -160,12 +172,12 @@ saveBtn.addEventListener("click", async () => {
         statusMessage.textContent = "Post published successfully!";
         statusMessage.style.color = "green";
 
-        // Clear form
         titleInputP.value = "";
         dateInput.value = "";
         locationInput.value = "";
         categoryInput.value = "";
         imageInput.value = "";
+        imageSliderInput.value = "";
         excerptInput.value = "";
         contentInput.value = "";
 
