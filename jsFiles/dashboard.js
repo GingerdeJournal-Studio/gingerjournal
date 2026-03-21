@@ -31,10 +31,10 @@ loadComponent("#footer", "GlobalFiles/FOOTER.html");
    DOM ELEMENTS (PHOTO UPLOAD)
 ------------------------------------------*/
 const urlInput = document.getElementById("photoURL");
-const titleInput = document.getElementById("photoTitle");
-const descInput = document.getElementById("photoDesc");
+// const titleInput = document.getElementById("photoTitle");
+// const descInput = document.getElementById("photoDesc");
 const categorySelect = document.getElementById("photoCategory");
-const tagsInput = document.getElementById("photoTags");
+// const tagsInput = document.getElementById("photoTags");
 const submitBtn = document.getElementById("submitBtn");
 const statusMsg = document.getElementById("statusMsg");
 
@@ -60,13 +60,13 @@ submitBtn.addEventListener("click", async () => {
     }
 
     const url = urlInput.value.trim();
-    const title = titleInput.value.trim();
-    const description = descInput.value.trim();
+    // const title = titleInput.value.trim();
+    // const description = descInput.value.trim();
     const category = categorySelect.value;
-    const tags = tagsInput.value
-        .split(",")
-        .map(t => t.trim())
-        .filter(t => t.length > 0);
+    // const tags = tagsInput.value
+    //     .split(",")
+    //     .map(t => t.trim())
+    //     .filter(t => t.length > 0);
 
     if (!url) {
         alert("Please fill in URL, title, and description.");
@@ -79,10 +79,10 @@ submitBtn.addEventListener("click", async () => {
     try {
         await addDoc(collection(db, "photos"), {
             url,
-            title,
-            description,
+            // title,
+            // description,
             category,
-            tags,
+            // tags,
             createdAt: serverTimestamp()
         });
 
@@ -90,9 +90,9 @@ submitBtn.addEventListener("click", async () => {
         statusMsg.style.color = "green";
 
         urlInput.value = "";
-        titleInput.value = "";
-        descInput.value = "";
-        tagsInput.value = "";
+        // titleInput.value = "";
+        // descInput.value = "";
+        // tagsInput.value = "";
         categorySelect.value = "Travel";
 
     } catch (err) {
