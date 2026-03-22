@@ -114,7 +114,7 @@ const locationInput = document.getElementById("postLocation");
 const categoryInput = document.getElementById("postCategory");
 const imageInput = document.getElementById("postImage");
 const imageSliderInput = document.getElementById("postImageSlider");
-const excerptInput = document.getElementById("postExcerpt");
+// const excerptInput = document.getElementById("postExcerpt");
 const contentInput = document.getElementById("postContent");
 
 const saveBtn = document.getElementById("savePostBtn");
@@ -140,7 +140,7 @@ saveBtn.addEventListener("click", async () => {
     const category = categoryInput.value.trim();
     const image = imageInput.value.trim();
     const sliderImagesRaw = imageSliderInput.value.trim();
-    const excerpt = excerptInput.value.trim();
+    // const excerpt = excerptInput.value.trim();
     const content = contentInput.value.trim();
 
     const sliderImages = sliderImagesRaw
@@ -164,7 +164,7 @@ saveBtn.addEventListener("click", async () => {
             category,
             image,
             sliderImages,
-            excerpt,
+            // excerpt,
             content,
             createdAt: serverTimestamp()
         });
@@ -178,7 +178,7 @@ saveBtn.addEventListener("click", async () => {
         categoryInput.value = "";
         imageInput.value = "";
         imageSliderInput.value = "";
-        excerptInput.value = "";
+        // excerptInput.value = "";
         contentInput.value = "";
 
     } catch (error) {

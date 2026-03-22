@@ -54,8 +54,8 @@ async function renderPosts(category = "All") {
                 <img src="${post.image}" alt="${post.title}">
                 <div class="content">
                     <h3>${post.title}</h3>
-                    <p id="location"><img src="https://pub-3a50bbfda00a49b2b959d58cd7bea019.r2.dev/Images/Logo/Icons/Location.svg">${post.location}</p>
-                    <p>${post.excerpt}</p>
+<!--                    <p id="location"><img src="https://pub-3a50bbfda00a49b2b959d58cd7bea019.r2.dev/Images/Logo/Icons/Location.svg">${post.location}</p>-->
+<!--                    <p>${post.excerpt}</p>-->
                     <div class="date">${post.date}</div>
                 </div>
             </a>

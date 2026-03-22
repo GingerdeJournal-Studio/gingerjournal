@@ -63,3 +63,6 @@
     cursor: pointer;
 }
 
+@media (max-width: 450px) {
+    .formInput {width: 100%;}
+}
