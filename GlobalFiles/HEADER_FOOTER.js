@@ -49,7 +49,7 @@ export function initHeaderMenu() {
 
 /* -----------------------------
    POPUP
-
+------------------------------*/
 export function initScrollPopup() {
     const HOURS = 1;
     const COOLDOWN = HOURS * 60 * 60 * 1000;
@@ -83,5 +83,3 @@ export function initScrollPopup() {
 
     window.addEventListener("scroll", showScrollPopup, { once: true });
 }
-
-------------------------------*/
