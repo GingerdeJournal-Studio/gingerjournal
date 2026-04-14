@@ -148,7 +148,7 @@ async function loadPhotos(initial = false) {
 
                 ${isAdmin ? `
                 <div class="adminControls">
-                    <button class="editBtn" data-id="${id}">Edit</button>
+                    <!-- <button class="editBtn" data-id="${id}">Edit</button> -->
                     <button class="deleteBtn" data-id="${id}">Delete</button>
                 </div>` : ""}
             `;
