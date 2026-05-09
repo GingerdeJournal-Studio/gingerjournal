@@ -208,27 +208,6 @@ header.transparent {.logo {display: none;} .logoChanged {display: block;}}
 @media (max-width: 1200px) {.desktopNav {width: 60%;}}
 @media (max-width: 1000px) {.desktopNav {width: 65%;} .logo, .logoChanged {margin-left: 10%;}}
 
-/*SCROLL POPUP*/
-.scrollPopup {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: rgba(0,0,0,0.85);
-    color: white;
-    padding: 14px 18px;
-    border-radius: 10px;
-    font-size: 15px;
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(20px);
-    transition: opacity 0.4s ease, transform 0.4s ease;
-    z-index: 9999;
-}
-.scrollPopup.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
 /*********** FOOTER CSS CODE ***********/
 footer {
     width: 100%;
